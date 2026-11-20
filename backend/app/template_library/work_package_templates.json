@@ -1,0 +1,977 @@
+{
+  "version": "master-prompt-v1.0",
+  "templates": [
+    {
+      "code": "T1",
+      "short": "WAN",
+      "name": "WAN & Perimeter",
+      "sourceFile": "1_WAN_Perimeter_Single_Page_Work_Package.docx",
+      "scope": {
+        "objective": "Design, deliver, implement and support a secure, resilient WAN and perimeter connectivity supporting warehouse operational technology (OT) environments and business operations.",
+        "coverage": "All OT-relevant WAN access and perimeter connectivity components for warehouse sites, including secure internet access, controlled remote connectivity, traffic segregation, and boundary protection between IT and OT systems.",
+        "standards": "The solution shall support conceptual enterprise-to-operational separation aligned with ISA-95 principles and enforce zones, conduits, least privilege, and defense-in-depth concepts aligned with IEC 62443.",
+        "clarifications": "Media selection, carrier diversity, redundancy models, interim connectivity, and physical delivery constraints are delivery decisions and are defined in the Appendix based on site conditions and timelines."
+      },
+      "functionalRequirements": [
+        {
+          "id": "FR-01",
+          "text": "The WAN and perimeter solution shall provide secure and resilient internet connectivity to support warehouse OT operations and dependent services."
+        },
+        {
+          "id": "FR-02",
+          "text": "The solution shall protect IT and OT assets at the network boundary using policy-based access control permitting only explicitly required services."
+        },
+        {
+          "id": "FR-03",
+          "text": "The solution shall enable secure connectivity to required external cloud and vendor systems while preventing unauthorized access."
+        },
+        {
+          "id": "FR-04",
+          "text": "The solution shall provide high availability to eliminate single points of failure during maintenance or component outages."
+        },
+        {
+          "id": "FR-05",
+          "text": "The solution shall preserve operational continuity for WMS, WCS, printing, scanning, and remote support during WAN degradation."
+        },
+        {
+          "id": "FR-06",
+          "text": "The solution shall enable controlled and auditable remote access for vendors and support teams to OT systems and Automation."
+        },
+        {
+          "id": "FR-07",
+          "text": "The solution shall segregate business-critical operational traffic from non-critical or guest traffic to preserve performance and security."
+        },
+        {
+          "id": "FR-08",
+          "text": "The solution shall generate auditable logs and alerts for security events, connectivity state, and policy changes."
+        }
+      ],
+      "technicalRequirements": [
+        {
+          "id": "TR-01",
+          "text": "The WAN and perimeter architecture shall support logical separation between enterprise, OT, and external connectivity domains, with enforcement design defined in Appendix A."
+        },
+        {
+          "id": "TR-02",
+          "text": "The solution shall support high-availability deployment models to maintain operations during link or component failure, as defined in Appendix A."
+        },
+        {
+          "id": "TR-03",
+          "text": "The solution shall support network segmentation to isolate OT environments from enterprise and external networks, as defined in Appendix A."
+        },
+        {
+          "id": "TR-04",
+          "text": "The solution shall support secure remote access mechanisms with controlled access boundaries for vendors and support users, as defined in Appendix B."
+        },
+        {
+          "id": "TR-05",
+          "text": "The WAN design shall support traffic prioritization to protect latency- and loss-sensitive operational applications, with policies defined in Appendix A."
+        },
+        {
+          "id": "TR-06",
+          "text": "The solution shall support centralized monitoring, logging, and reporting of WAN health, security events, and SLA metrics, as defined in Appendix B."
+        },
+        {
+          "id": "TR-07",
+          "text": "The solution shall support automated failover to maintain connectivity during ISP or WAN outages, as defined in Appendix A."
+        },
+        {
+          "id": "TR-08",
+          "text": "Physical termination locations and facility constraints for WAN delivery shall be defined and controlled in Appendix A."
+        }
+      ],
+      "appendices": [
+        {
+          "letter": "A",
+          "summary": "WAN architecture and design details including redundancy models, segmentation approach, traffic handling policies, and physical termination constraints.",
+          "canonical": "C"
+        },
+        {
+          "letter": "B",
+          "summary": "Operational and security evidence including remote access procedures, logging and monitoring integration, SLA definitions, and validation artifacts.",
+          "canonical": "F"
+        }
+      ],
+      "bomSections": [
+        "9",
+        "10",
+        "11",
+        "12.1",
+        "12.7"
+      ]
+    },
+    {
+      "code": "T2",
+      "short": "MDF",
+      "name": "MDF (Main Distribution Frame)",
+      "sourceFile": "2_MDF_Single_Page_Work_Package.docx",
+      "scope": {
+        "objective": "Design, supply, install, and commission a secure, resilient, and standards-compliant Main Distribution Frame (MDF) infrastructure supporting all OT, IT, and Automation network terminations within the facility.",
+        "coverage": "MDF room, rack infrastructure, core/distribution switching, power distribution, cable management, grounding, cooling, environmental monitoring, and access control.",
+        "standards": "Aligned with ISA-95 (enterprise/operational boundary separation) and IEC 62443 (physical zone integrity, defense-in-depth, least privilege). (Normative references – design intent)",
+        "clarifications": "Quantities, rack counts, room dimensions, and topology diagrams are site-specific and referenced in the Appendix. Mentioning number of users and operation hours."
+      },
+      "functionalRequirements": [
+        {
+          "id": "FR-01",
+          "text": "The MDF shall serve as the centralized, secure termination point for all OT and IT network infrastructure within the facility."
+        },
+        {
+          "id": "FR-02",
+          "text": "Physical access to the MDF shall be restricted, audited, and protected in alignment with safety standards."
+        },
+        {
+          "id": "FR-03",
+          "text": "Environmental conditions(temperature and humidity) within the MDF room shall be continuously maintained within defined operational thresholds to ensure equipment availability."
+        },
+        {
+          "id": "FR-04",
+          "text": "Power shall be distributed with redundancy to prevent unplanned outages affecting process-critical OT systems."
+        },
+        {
+          "id": "FR-05",
+          "text": "All cabling, equipment, and cable runs shall be labelled, documented, and traceable to as-built records."
+        },
+        {
+          "id": "FR-06",
+          "text": "The MDF shall be designed for scalability to accommodate future growth in rack capacity, switching density, and backbone connectivity."
+        }
+      ],
+      "technicalRequirements": [
+        {
+          "id": "TR-01",
+          "text": "Rack Infrastructure: Industrial-grade racks with lockable access, seismic anchoring, vertical and horizontal cable management, sized to support confirmed equipment load. (Appendix A)"
+        },
+        {
+          "id": "TR-02",
+          "text": "Switching: Core and distribution layer switches rack-mounted per approved network topology, labelled, and configured to support all connected segments. (Appendix A)"
+        },
+        {
+          "id": "TR-03",
+          "text": "Power & UPS: Uninterruptible power supply sized per one of three standard capacity tiers (Small / Medium / Large — see Appendix B), providing a minimum 15–30 minute runtime for all equipment in the MDF rack to allow graceful shutdown or generator changeover; battery monitoring integrated to BMS or network management. Actual tier selection based on connected load plus buffer, per Appendix B selection criteria."
+        },
+        {
+          "id": "TR-04",
+          "text": "Room Construction: MDF room sized per rack configuration (1, 2, or 3 racks) with sealed walls, anti-dust treatment, fire-rated penetrations, and compliant service clearances. (Appendix C)"
+        },
+        {
+          "id": "TR-05",
+          "text": "Environmental Monitoring: Temperature and humidity within operational thresholds; HVAC-integrated cooling with alerting to NOC or BMS; fire suppression compliant with local building codes. (Appendix C)"
+        },
+        {
+          "id": "TR-06",
+          "text": "Cabling: Structured copper and fibre cabling installed, certified, and colour-coded per segment (Data, Voice, WLAN); grounding and bonding applied throughout. (Appendix D)"
+        },
+        {
+          "id": "TR-07",
+          "text": "Physical Security: Electronic access control with audit logging enforced at MDF room boundary, consistent with IEC 62443 zone protection and ISA-95 operational/enterprise separation. (Appendix D)"
+        }
+      ],
+      "appendices": [
+        {
+          "letter": "A",
+          "summary": "Rack elevation diagrams, equipment schedule, and network topology for the MDF",
+          "canonical": "B"
+        },
+        {
+          "letter": "B",
+          "summary": "UPS sizing, PDU layout, and redundancy specifications. Sized per three standard capacity tiers — Small (3–6 kVA), Medium (6–10 kVA), Large (10–20 kVA selected to meet connected load plus buffer, providing minimum 15–30 minute backup runtime for all equipment in the main server room rack.",
+          "canonical": "G"
+        },
+        {
+          "letter": "C",
+          "summary": "MDF room layout, floor plan, HVAC, environmental thresholds, and fire suppression design",
+          "canonical": "G"
+        },
+        {
+          "letter": "D",
+          "summary": "Cabling standards, grounding specifications, access control configuration, and compliance certification records",
+          "canonical": "F"
+        },
+        {
+          "letter": "E",
+          "summary": "Hardware equipment list and details",
+          "canonical": "A"
+        }
+      ],
+      "bomSections": [
+        "12.2",
+        "15"
+      ]
+    },
+    {
+      "code": "T3",
+      "short": "CAB",
+      "name": "Network Cabling (Passive)",
+      "sourceFile": "3_Network_Cabling_Single_Page_Work_Package.docx",
+      "scope": {
+        "objective": "The design and installation of structured network cabling supporting data, fiber-optic, and WLAN connectivity to deliver secure and standardized physical network connectivity for IT, OT, and automation environments.",
+        "coverage": "All passive network cabling infrastructure required for operational connectivity, including copper and fiber media, termination and patching, rack- and cabinet-mounted accessories (such as patch panels, fiber termination, PDUs, and backup power interfaces), containment, labeling, testing, certification, and documentation.",
+        "standards": "The cabling infrastructure shall support logical separation between enterprise and operational networks in alignment with ISA-95 architectural principles and shall align with IEC 62443 security concepts, including zones, conduits, least privilege, and defense-in-depth.",
+        "clarifications": "Detailed routing layouts, cable counts, cabinet configurations, media selections, and installation methods constitute implementation detail and shall be defined exclusively in the Appendix. Absence of such detail in the main body shall not limit the supplier's obligation to meet the requirements defined herein."
+      },
+      "functionalRequirements": [
+        {
+          "id": "FR-01",
+          "text": "The cabling solution shall provide reliable physical connectivity for IT, OT, and automation network services."
+        },
+        {
+          "id": "FR-02",
+          "text": "The cabling solution shall support continuous operation in industrial warehouse environments."
+        },
+        {
+          "id": "FR-03",
+          "text": "The cabling solution shall support physical segregation between data and power pathways to protect network integrity."
+        },
+        {
+          "id": "FR-04",
+          "text": "The cabling solution shall enable clear identification, traceability, and maintainability of all network connections."
+        },
+        {
+          "id": "FR-05",
+          "text": "The cabling solution shall support operational availability and minimize risk of physical infrastructure failure."
+        }
+      ],
+      "technicalRequirements": [
+        {
+          "id": "TR-01",
+          "text": "Structured cabling shall meet defined performance and environmental baselines suitable for industrial sites, as defined in Appendix A."
+        },
+        {
+          "id": "TR-02",
+          "text": "Copper and fiber cabling infrastructure shall support required bandwidth and distance constraints, as defined in Appendix A."
+        },
+        {
+          "id": "TR-03",
+          "text": "Cabling containment and routing shall protect against mechanical damage and electromagnetic interference, as defined in Appendix B."
+        },
+        {
+          "id": "TR-04",
+          "text": "All cabling shall be labeled and documented to support lifecycle management and fault isolation, as defined in Appendix C."
+        },
+        {
+          "id": "TR-05",
+          "text": "All cabling installations shall be tested and validated with certification evidence prior to operational acceptance, as defined in Appendix C."
+        },
+        {
+          "id": "TR-06",
+          "text": "The passive network cabling design shall align to the warehouse layout, including documented WLAN access point and data drop locations, MDF and IDF rooms, and network switch distribution, to ensure physical cabling readiness for IT, OT, and automation connectivity, as defined in Appendix D."
+        },
+        {
+          "id": "TR-07",
+          "text": "Installation of WLAN access points shall comply with the physical deployment constraints defined for the passive network cabling design, including mounting height, orientation, tilt angle, and applicable mounting constraints, as defined in Appendix E."
+        }
+      ],
+      "appendices": [
+        {
+          "letter": "A",
+          "summary": "Cabling media specifications, performance standards, and environmental constraints.",
+          "canonical": "C"
+        },
+        {
+          "letter": "B",
+          "summary": "Containment systems, routing plans, and physical protection details.",
+          "canonical": "B"
+        },
+        {
+          "letter": "C",
+          "summary": "Labeling standards, testing procedures, and certification reports.",
+          "canonical": "F"
+        },
+        {
+          "letter": "D",
+          "summary": "Warehouse layout documentation identifying WLAN access point locations, MDF and IDF room locations, data drops locations, and network switch distribution used as the physical reference for the passive cabling design.",
+          "canonical": "B"
+        },
+        {
+          "letter": "E",
+          "summary": "Warehouse WLAN physical deployment documentation defining approved access point mounting locations, installation height, orientation, tilt angle, and applicable mounting constraints used as mandatory input to the passive cabling and access point installation design.",
+          "canonical": "B"
+        }
+      ],
+      "bomSections": [
+        "12.5",
+        "14"
+      ]
+    },
+    {
+      "code": "T4",
+      "short": "LAN",
+      "name": "LAN Active Network",
+      "sourceFile": "4_ActiveNetwork_Single_Page_Work_Package.docx",
+      "scope": {
+        "objective": "Design, supply, configure, and commission a resilient, secure, and scalable LAN Active network integrating IT, OT, and Automation systems while protecting process-critical operations.",
+        "coverage": "MDF, IDFs, core/distribution/access switching, VLANs, WLAN, OT integration, monitoring, and redundancy.",
+        "standards": "Aligned with ISA-95 (IT/OT zone separation) and IEC 62443 (segmentation, least privilege, controlled conduits). (Normative references – design intent)",
+        "exclusions": "Application logic, PLC programming, non-networked automation assets (refer to Appendix D if site-specific)."
+      },
+      "functionalRequirements": [
+        {
+          "id": "FR-01",
+          "text": "Logical separation of IT, OT, and Automation networks using VLANs and access controls policies."
+        },
+        {
+          "id": "FR-02",
+          "text": "Reliable connectivity for end-user, OT devices, machines, WLAN APs, and upstream networks per approved design."
+        },
+        {
+          "id": "FR-03",
+          "text": "Stable performance under industrial conditions without impacting process-critical OT systems."
+        },
+        {
+          "id": "FR-04",
+          "text": "Centralized monitoring, fault isolation, and incident management for IT and OT domains."
+        },
+        {
+          "id": "FR-05",
+          "text": "Controlled deployment and change management to avoid unplanned OT disruption."
+        },
+        {
+          "id": "FR-06",
+          "text": "Scalability to support future automation, WLAN density, and capacity growth."
+        }
+      ],
+      "technicalRequirements": [
+        {
+          "id": "TR-01",
+          "text": "ISP & Core: Dual ISP with diverse entry; firewall HA cluster; stackable core switches (single-IP mgmt). (Appx A)"
+        },
+        {
+          "id": "TR-02",
+          "text": "IDF Design: IDF placement meeting ≤90 m copper limit to all APs and AOT drops. (Appx C)"
+        },
+        {
+          "id": "TR-03",
+          "text": "Segmentation: Baseline VLANs: User Wired, User WLAN, Printers, RDT, OT/Automation, Server/iPC, Management. (Appx B)"
+        },
+        {
+          "id": "TR-04",
+          "text": "Inter-VLAN: Controlled routing (ACL-based) between MCS/Server ↔ OT only when required. (Appx D)"
+        },
+        {
+          "id": "TR-05",
+          "text": "OT Conduits: Explicit definition of OT ↔ IT conduits; deny-by-default, least privilege. (Appx D)"
+        },
+        {
+          "id": "TR-06",
+          "text": "Ports & Protocols: Only approved OT ports enabled (e.g. PLC, RFID, PTL). (Appx D)"
+        },
+        {
+          "id": "TR-07",
+          "text": "Inspection: DPI / protocol-aware filtering supported. (Appx D)"
+        },
+        {
+          "id": "TR-08",
+          "text": "Industrial Switching: Support for PROFINET, Modbus TCP, low latency, IGMP snooping, OT-QoS. (Appx D)"
+        },
+        {
+          "id": "TR-09",
+          "text": "WLAN: Wi-Fi 6 (802.11ax); sub-second roaming for RDT; validated RF heatmaps and AP heights. (Appx C)"
+        },
+        {
+          "id": "TR-10",
+          "text": "Copper: Cat 6A F/UTP shielded cabling for EMI mitigation. (Appx C)"
+        },
+        {
+          "id": "TR-11",
+          "text": "Fiber: OM4 multimode, minimum 6-core MDF↔IDF backbone. (Appx C)"
+        },
+        {
+          "id": "TR-12",
+          "text": "PoE: Access switches sized for full PoE+ load + 20% growth margin. (Appx B)"
+        },
+        {
+          "id": "TR-13",
+          "text": "Power: UPS per IDF providing ≥15 min runtime for active equipment. (Appx B)"
+        }
+      ],
+      "appendices": [
+        {
+          "letter": "A",
+          "summary": "Automation & network high-level architecture",
+          "canonical": "C"
+        },
+        {
+          "letter": "B",
+          "summary": "Quantity overview, PoE & power sizing",
+          "canonical": "A"
+        },
+        {
+          "letter": "C",
+          "summary": "Office/warehouse layouts, MDF/IDF, WLAN heatmaps",
+          "canonical": "B"
+        },
+        {
+          "letter": "D",
+          "summary": "Site-specific OT ports, protocols, exceptions",
+          "canonical": "D"
+        }
+      ],
+      "bomSections": [
+        "12",
+        "13"
+      ]
+    },
+    {
+      "code": "T5",
+      "short": "ITH",
+      "name": "IT Hardware",
+      "sourceFile": "5_IT_Hardware_Single_Page_Work_Package.docx",
+      "scope": {
+        "objective": "Commission, provision, support and maintenance of the IT hardware required to support warehouse operations and administrative activities, ensuring operational readiness and lifecycle governance.",
+        "coverage": "All Information Technology (IT) assets deployed in warehouse environments, including end-user computing devices, shared operational stations, peripherals, printers, meeting-room IT, and supporting office hardware.",
+        "standards": "IT assets shall support conceptual separation between enterprise and operational environments in line with ISA-95 principles and shall align with IEC 62443 concepts such as zones, conduits, least privilege, and defense-in-depth.",
+        "clarifications": "Device models, quantities, physical layouts, and configuration approaches are delivery-specific details and shall be defined exclusively in the Appendix."
+      },
+      "functionalRequirements": [
+        {
+          "id": "FR-01",
+          "text": "The IT hardware solution shall support warehouse operational and administrative business workflows."
+        },
+        {
+          "id": "FR-02",
+          "text": "The solution shall provide end-user computing capability for administrative and supervisory personnel."
+        },
+        {
+          "id": "FR-03",
+          "text": "The solution shall provide peripheral devices required for execution of warehouse and office workflows."
+        },
+        {
+          "id": "FR-04",
+          "text": "The solution shall support meeting-room IT suitable for collaboration and operational coordination."
+        },
+        {
+          "id": "FR-05",
+          "text": "The solution shall clearly distinguish between user-assigned devices and shared operational devices."
+        },
+        {
+          "id": "FR-06",
+          "text": "All IT hardware shall be configured, validated, and ready for operational use prior to go-live."
+        }
+      ],
+      "technicalRequirements": [
+        {
+          "id": "TR-01",
+          "text": "All IT hardware shall comply with corporate IT standards and approved baselines, as defined in Appendix A."
+        },
+        {
+          "id": "TR-02",
+          "text": "End-user and shared IT devices shall be suitable for continuous warehouse and office operating conditions, with specifications defined in Appendix A."
+        },
+        {
+          "id": "TR-03",
+          "text": "IT connectivity shall support operational performance while maintaining appropriate separation from OT domains, with design details defined in Appendix C."
+        },
+        {
+          "id": "TR-04",
+          "text": "Peripheral and printing capabilities shall support both operational and administrative use cases, with device selection defined in Appendix A."
+        },
+        {
+          "id": "TR-05",
+          "text": "Meeting-room IT solutions shall support enterprise collaboration platforms, with layouts and configurations defined in Appendix C."
+        },
+        {
+          "id": "TR-06",
+          "text": "All IT hardware assets shall be inventoried and tracked for lifecycle management, as defined in Appendix B."
+        },
+        {
+          "id": "TR-07",
+          "text": "Testing, validation, and handover evidence shall be provided before operational acceptance, as defined in Appendix B."
+        }
+      ],
+      "appendices": [
+        {
+          "letter": "A",
+          "summary": "IT hardware bill of materials, specifications, and approved corporate baselines.",
+          "canonical": "A"
+        },
+        {
+          "letter": "B",
+          "summary": "Asset inventory, testing, validation, and handover evidence.",
+          "canonical": "I"
+        },
+        {
+          "letter": "C",
+          "summary": "Office, meeting-room, and warehouse workstation layouts and connectivity design.",
+          "canonical": "B"
+        }
+      ],
+      "bomSections": [
+        "17",
+        "18",
+        "19",
+        "20",
+        "21"
+      ]
+    },
+    {
+      "code": "T6",
+      "short": "OTH",
+      "name": "OT Hardware",
+      "sourceFile": "6_OT_Hardware_Single_Page_2.docx",
+      "scope": {
+        "objective": "Provide and govern OT assets required to enable warehouse operational workflows in a secure, standardized, and supportable manner.",
+        "coverage": "All OT assets for warehouse operations, including RF handhelds, printers (industrial/desktop/mobile), RFID readers, industrial computers, MHE tablets, and supporting peripherals.",
+        "standards": "OT assets shall support ISA-95 enterprise-to-operation separation and IEC 62443 security concepts including zones, conduits, least privilege, and defense in depth.",
+        "clarifications": "Vendor models, quantities, layouts, designs, ports, protocols, and implementation instructions are defined only in Appendices."
+      },
+      "functionalRequirements": [
+        {
+          "id": "FR-01",
+          "text": "Handheld RF devices shall support all warehouse workflows."
+        },
+        {
+          "id": "FR-02",
+          "text": "Fixed operational stations shall support execution of WMS workflows."
+        },
+        {
+          "id": "FR-03",
+          "text": "Label printing capability shall support inbound, outbound, and packing operations volume."
+        },
+        {
+          "id": "FR-04",
+          "text": "Pack-station scanning shall support high-frequency repetitive operations."
+        },
+        {
+          "id": "FR-05",
+          "text": "Tablet solutions shall support forklift and MHE task execution."
+        },
+        {
+          "id": "FR-06",
+          "text": "Devices shall support the required barcode symbology."
+        },
+        {
+          "id": "FR-07",
+          "text": "All OT devices shall be configured, enrolled, and validated prior to go-live."
+        },
+        {
+          "id": "FR-08",
+          "text": "RFID capability shall be provided where required by operations and regulation."
+        }
+      ],
+      "technicalRequirements": [
+        {
+          "id": "TR-01",
+          "text": "OT hardware shall comply with corporate standards; BoM is defined in Appendix A."
+        },
+        {
+          "id": "TR-02",
+          "text": "RF handhelds shall meet warehouse-grade baselines defined in Appendix C."
+        },
+        {
+          "id": "TR-03",
+          "text": "Wireless connectivity requirements shall comply with site design in Appendix B."
+        },
+        {
+          "id": "TR-04",
+          "text": "Label printers shall support operational label formats; see Appendices A and B."
+        },
+        {
+          "id": "TR-05",
+          "text": "Mobile printers shall be rugged and governed per Appendix C."
+        },
+        {
+          "id": "TR-06",
+          "text": "MHE tablets shall support WMS access and mounting per Appendix D."
+        },
+        {
+          "id": "TR-07",
+          "text": "Pack-station scanners shall meet symbology and reliability needs per Appendix A."
+        },
+        {
+          "id": "TR-08",
+          "text": "All mobile OT devices shall be managed via SOTI as defined in Appendix C."
+        },
+        {
+          "id": "TR-09",
+          "text": "Scanning and decoding behavior shall be validated per Appendix C."
+        },
+        {
+          "id": "TR-10",
+          "text": "RFID devices shall meet regulatory constraints per Appendices A and C."
+        },
+        {
+          "id": "TR-11",
+          "text": "Hardware quantities shall be defined in Appendix A."
+        },
+        {
+          "id": "TR-12",
+          "text": "Physical placement constraints shall be defined in Appendix B."
+        }
+      ],
+      "appendices": [
+        {
+          "letter": "A",
+          "summary": "Hardware Bill of Materials & Detail requirements.",
+          "canonical": "A"
+        },
+        {
+          "letter": "B",
+          "summary": "Warehouse Layouts",
+          "canonical": "B"
+        },
+        {
+          "letter": "C",
+          "summary": "SOTI, Configuration, Validation, and RFID Evidence",
+          "canonical": "F"
+        },
+        {
+          "letter": "D",
+          "summary": "MHE Tablets mounting guide and setup",
+          "canonical": "F"
+        }
+      ],
+      "bomSections": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "22",
+        "23"
+      ]
+    },
+    {
+      "code": "T7",
+      "short": "OTM",
+      "name": "OT Automation Machines",
+      "sourceFile": "7_1_OT_Machine_Single_Page_Work_Package.docx",
+      "scope": {
+        "objective": "Design, Commissioning and Provisioning of OT Machine and enablement requirements to deploy and operate automation machines within warehouse environments in a secure and standardized manner.",
+        "coverage": "All automation machines, including mechanical, electrical, network connectivity, safety readiness, and data enablement, PLC logic, control code, and machine functional design.",
+        "standards": "Automation enablement shall align conceptually with ISA 95 enterprise–control system separation and IEC 62443 security concepts including zones, conduits, least privilege, and defense in depth.",
+        "clarifications": "Machine internal logic, Barcode encryption standards, RFID band frequencies control design, and vendor specific implementations are referenced only in the Appendix."
+      },
+      "functionalRequirements": [
+        {
+          "id": "FR-01",
+          "text": "Automation machines shall support operational throughput and accuracy of targets defined by operations."
+        },
+        {
+          "id": "FR-02",
+          "text": "Automation machines shall support continuous warehouse operations unless otherwise specified."
+        },
+        {
+          "id": "FR-03",
+          "text": "Automation machines shall integrate with warehouse control and management systems for operational data exchange."
+        },
+        {
+          "id": "FR-04",
+          "text": "Automation machines shall support safe operation, maintenance access, and fault handling."
+        },
+        {
+          "id": "FR-05",
+          "text": "Automation machines shall provide operational status, alarms, and event visibility."
+        },
+        {
+          "id": "FR-06",
+          "text": "OT machines shall comply with internal AOT standards, customer requirements, and regulatory obligations."
+        }
+      ],
+      "technicalRequirements": [
+        {
+          "id": "TR-01",
+          "text": "Automation machines shall be mechanically compatible with warehouse environmental and structural constraints, as defined in Appendix A."
+        },
+        {
+          "id": "TR-02",
+          "text": "Automation machines shall comply with site electrical, grounding, and power requirements to ensure safe operation, as defined in Appendix B."
+        },
+        {
+          "id": "TR-03",
+          "text": "Automation machines shall support standardized OT network connectivity and secure IT/OT integration at the infrastructure level, as defined in Appendix C."
+        },
+        {
+          "id": "TR-04",
+          "text": "Automation machines shall comply with applicable safety and risk mitigation requirements for warehouse operations, as defined in Appendix D."
+        },
+        {
+          "id": "TR-05",
+          "text": "Automation machines shall support operational data logging and diagnostics for visibility and troubleshooting, as defined in Appendix E."
+        },
+        {
+          "id": "TR-06",
+          "text": "Automation machine assets shall support identification, documentation, and lifecycle management expectations, as defined in Appendix F."
+        },
+        {
+          "id": "TR-07",
+          "text": "Automation machines shall support the operational process flow and throughput requirements, as defined in Appendix C."
+        },
+        {
+          "id": "TR-08",
+          "text": "Centralized OT servers shall support scalable sizing (CPU/RAM/storage), virtualized environment, high availability with failover, and integration with MCS/WMS using approved vendors. (See Appendix H.)"
+        }
+      ],
+      "appendices": [
+        {
+          "letter": "A",
+          "summary": "Site Layout. Mechanical and environmental constraints for automation machines.",
+          "canonical": "B"
+        },
+        {
+          "letter": "B",
+          "summary": "Electrical power, grounding, and compliance requirements.",
+          "canonical": "G"
+        },
+        {
+          "letter": "C",
+          "summary": "OT network integration principles, operational process, throughput and infrastructure constraints.",
+          "canonical": "C"
+        },
+        {
+          "letter": "D",
+          "summary": "Safety, risk assessment, and compliance documentation.",
+          "canonical": "G"
+        },
+        {
+          "letter": "E",
+          "summary": "Operational data logging and diagnostics expectations.",
+          "canonical": "F"
+        },
+        {
+          "letter": "F",
+          "summary": "Asset identification, documentation, and lifecycle management requirements.",
+          "canonical": "I"
+        }
+      ],
+      "bomSections": [
+        "6",
+        "16",
+        "24"
+      ]
+    },
+    {
+      "code": "T8",
+      "short": "OTN",
+      "name": "OT Machine Network",
+      "sourceFile": "OT_Machine_Network_Work_Package_draft.docx",
+      "scope": {
+        "objective": "The Vendor shall Design, Install, and Commission the OT Machine Network for the project defined in Appendix A, supporting industrial machine assets at Purdue Levels 0–2 (field devices, controllers, supervisory). The Vendor shall deliver a safe, deterministic, segmented, and auditable machine-to-machine communication infrastructure that meets the standard Functional and Technical Requirements detailed in Sections 2 and 3 and Appendices B–F.",
+        "coverage": "Vendor scope: design, install, and commission of the OT Machine Network — covering machine LAN switching, controller-to-device communication (L0–L1), supervisory connectivity (L1–L2), time synchronization, machine-edge segmentation, and conduits to Level 3 by reference only.\nOut of scope: site backbone, WAN, IT/OT DMZ, MES/ERP integration, and WCS/SCADA application logic (referenced only where they interface the machine network).",
+        "standards": "ISA-95 — conceptual separation between enterprise and operational domains.\nIEC 62443 — zones, conduits, least privilege, and defense-in-depth applied to machine assets.\nPurdue Reference Architecture — L0–L2 layering of the machine network.\nNIST SP 800-82 — OT security guidance for industrial control systems.",
+        "clarifications": "Appendix A is project-specific (scope, machines, site, schedule). Appendices B–F and Sections 2–3 are the standard baseline, reusable across projects and binding on the Vendor.\nWhere IT and OT controls converge, the requirement is stated once and scoped to OT machine assets."
+      },
+      "functionalRequirements": [
+        {
+          "id": "FR-01",
+          "text": "The Vendor shall design the OT Machine Network for deterministic control traffic."
+        },
+        {
+          "id": "FR-02",
+          "text": "The Vendor shall isolate safety traffic from non-safety traffic."
+        },
+        {
+          "id": "FR-03",
+          "text": "The Vendor shall provide redundant paths for critical control loops."
+        },
+        {
+          "id": "FR-04",
+          "text": "The Vendor shall implement time synchronization across all machine assets."
+        },
+        {
+          "id": "FR-05",
+          "text": "The Vendor shall enforce least-privilege machine-to-machine flows."
+        },
+        {
+          "id": "FR-06",
+          "text": "The Vendor shall segregate machine assets into zones with controlled conduits."
+        },
+        {
+          "id": "FR-07",
+          "text": "The Vendor shall enable monitoring and logging at machine-edge boundaries."
+        },
+        {
+          "id": "FR-08",
+          "text": "The Vendor shall deliver design, installation, and commissioning evidence for Owner acceptance."
+        }
+      ],
+      "technicalRequirements": [
+        {
+          "id": "TR-01",
+          "text": "The Vendor shall design the architecture per the project scope in Appendix A and the standard architecture pattern in Appendix B (Purdue L0–L2 layering, zones, conduits)."
+        },
+        {
+          "id": "TR-02",
+          "text": "The Vendor shall restrict industrial protocols and machine-edge port exposure to those defined in Appendix C; all other ports shall be disabled at commissioning."
+        },
+        {
+          "id": "TR-03",
+          "text": "The Vendor shall apply zone and conduit cybersecurity controls (hardening, authentication, segmentation, monitoring) per Appendix D to all machine assets in Appendix A."
+        },
+        {
+          "id": "TR-04",
+          "text": "The Vendor shall implement firmware management, backup, change control, and end-of-life handling per Appendix E for all installed machine assets."
+        },
+        {
+          "id": "TR-05",
+          "text": "The Vendor shall execute FAT, SAT, performance, failover, time-sync, and cybersecurity validation per Appendix F and deliver signed evidence for acceptance."
+        },
+        {
+          "id": "TR-06",
+          "text": "The Vendor shall deliver, at commissioning handover, the as-built asset inventory, configurations, and documentation for the machines listed in Appendix A."
+        }
+      ],
+      "appendices": [
+        {
+          "letter": "A",
+          "summary": "Project Scope of Work & Machine Inventory (PROJECT-SPECIFIC) — site, machine list, quantities, locations, project schedule, vendor deliverables, and project-specific constraints. Defines the boundary of the Vendor's Design, Install, and Commission scope for this project.",
+          "canonical": "A"
+        },
+        {
+          "letter": "B",
+          "summary": "Architecture & Topology Standard (STANDARD) — reference machine network architecture, zone layout, Purdue L0–L2 mapping, redundancy strategy, time-sync design, and conduits to Level 3.",
+          "canonical": "C"
+        },
+        {
+          "letter": "C",
+          "summary": "Industrial Protocols & Port Matrix Standard (STANDARD) — EtherNet/IP, PROFINET, Modbus TCP, OPC UA, VLAN assignments, conduit definitions, and allowed flows.",
+          "canonical": "D"
+        },
+        {
+          "letter": "D",
+          "summary": "Cybersecurity Controls Standard (STANDARD) — zone and conduit detail, hardening baselines, identity and access management, monitoring, and logging per IEC 62443 and NIST SP 800-82.",
+          "canonical": "C"
+        },
+        {
+          "letter": "E",
+          "summary": "Lifecycle & Patch Management Standard (STANDARD) — firmware update procedures, backup and restore, change control, vulnerability handling, and end-of-life management.",
+          "canonical": "I"
+        },
+        {
+          "letter": "F",
+          "summary": "Test & Acceptance Criteria Standard (STANDARD) — FAT, SAT, performance, determinism, failover, time-sync, and cybersecurity validation procedures and pass/fail thresholds.",
+          "canonical": "F"
+        }
+      ],
+      "bomSections": [
+        "6",
+        "16"
+      ]
+    }
+  ],
+  "canonicalAppendix": [
+    {
+      "letter": "A",
+      "number": "4.1",
+      "title": "Hardware Bill of Materials & Quantities"
+    },
+    {
+      "letter": "B",
+      "number": "4.2",
+      "title": "Layouts & Drawings"
+    },
+    {
+      "letter": "C",
+      "number": "4.3",
+      "title": "Network Architecture, Security & Cabling Design"
+    },
+    {
+      "letter": "D",
+      "number": "4.4",
+      "title": "Ports, Protocols & URL Whitelisting"
+    },
+    {
+      "letter": "E",
+      "number": "4.5",
+      "title": "Barcode, Label & RFID Standards"
+    },
+    {
+      "letter": "F",
+      "number": "4.6",
+      "title": "Configuration, Device Management, Testing & Validation"
+    },
+    {
+      "letter": "G",
+      "number": "4.7",
+      "title": "Power, Environmental, Safety & Compliance"
+    },
+    {
+      "letter": "H",
+      "number": "4.8",
+      "title": "Server & Compute Specification"
+    },
+    {
+      "letter": "I",
+      "number": "4.9",
+      "title": "Asset, Lifecycle & Handover Documentation"
+    },
+    {
+      "letter": "J",
+      "number": "4.10",
+      "title": "Reference Documents"
+    }
+  ],
+  "deliverables": [
+    {
+      "milestoneKey": "MS1.3",
+      "milestone": "MS 1.3",
+      "phase": "Provision of Design",
+      "items": [
+        "Workpackage Implementation plan",
+        "Detail Solution Design Document and Test Plan",
+        "Network Topology Diagram, Connectivity Diagram",
+        "Rack Elevation Diagram and Floor Plan Layout",
+        "IP Schema Document",
+        "VLAN & Segmentation Design Document",
+        "Cable Routing Plan",
+        "Confirmed BOM (Model & QTY)",
+        "PO's raised & ETA confirmed"
+      ]
+    },
+    {
+      "milestoneKey": "MS2",
+      "milestone": "MS 2",
+      "phase": "FAT / Site Delivery",
+      "items": [
+        "FAT / Quality check Report",
+        "SIMT Execution & reporting",
+        "Proof of Goods receive (BOM) & warranty coverage verified.",
+        "Physical installation (on-site photos required to confirm progress and completion)"
+      ]
+    },
+    {
+      "milestoneKey": "MS3",
+      "milestone": "MS 3",
+      "phase": "Commissioning & Unit Testing",
+      "items": [
+        "Unit Testing execution & reporting.",
+        "Compliance documentation confirmed against applicable standards (ANSI/TIA-568, ISO/IEC 11801, fire safety and OT-specific standards)"
+      ]
+    },
+    {
+      "milestoneKey": "MS4",
+      "milestone": "MS 4",
+      "phase": "Integration & User Acceptance",
+      "items": [
+        "Site integration testing for HW & SW execution & reporting. Punch list raised for outstanding items.",
+        "UAT for HW & SW execution and reporting",
+        "UAT Readiness Checklist; Asset inventory compiled & registered (CMDB, SOTI, ..)",
+        "All documentation delivered in soft copy formats",
+        "Formal handover to site management (credentials & escalation contacts)",
+        "BAU RACI Support Model defined"
+      ]
+    },
+    {
+      "milestoneKey": "MS5",
+      "milestone": "MS 5",
+      "phase": "Hypercare",
+      "items": [
+        "As-built drawings & documentation Validated and Handover",
+        "Hypercare support active; incidents logged & resolved",
+        "NOC monitoring confirmed active and initial SLA report issued (where applicable)"
+      ]
+    },
+    {
+      "milestoneKey": "MS6",
+      "milestone": "MS 6",
+      "phase": "Business as Usual Support",
+      "items": [
+        "Final project acceptance signed off; project formally closed",
+        "BAU handover completed (handover pack, escalation matrix, SLA documentation)",
+        "All punch list items resolved or transitioned to BAU tracking"
+      ]
+    }
+  ],
+  "combinedStandards": "All work shall align with ISA-95 enterprise-to-operational separation and IEC 62443 security concepts, including zones, conduits, least privilege, and defense-in-depth.",
+  "combinedStandardsT8Suffix": " The OT Machine Network shall additionally follow the Purdue Reference Architecture (L0–L2) and NIST SP 800-82."
+}

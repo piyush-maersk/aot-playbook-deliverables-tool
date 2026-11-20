@@ -1,0 +1,13 @@
+fastapi>=0.115
+uvicorn[standard]>=0.30
+gunicorn>=22.0; sys_platform != "win32"
+sqlalchemy[asyncio]>=2.0.30
+aiosqlite>=0.20
+psycopg[binary]>=3.2
+pyjwt[crypto]>=2.9
+pydantic>=2.8
+pydantic-settings>=2.4
+python-multipart>=0.0.9
+python-docx>=1.1
+openpyxl>=3.1
+pypdf>=4.3
